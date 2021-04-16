@@ -1,4 +1,4 @@
-#imageLiteral(resourceName: "country.png")#imageLiteral(resourceName: "folk.png")#imageLiteral(resourceName: "jazz.png")#imageLiteral(resourceName: "nextPicker.png")#imageLiteral(resourceName: "noPick.png")#imageLiteral(resourceName: "r&b.png")import SwiftUI
+import SwiftUI
 import PlaygroundSupport
 public struct ContentView: View {
     
@@ -37,6 +37,7 @@ public struct ContentView: View {
                     .onHover { hoverN in
                         isHoverNo = hoverN
                     }
+                    
                 Spacer()
                     .frame(width: 80)
                 Button(action: {
