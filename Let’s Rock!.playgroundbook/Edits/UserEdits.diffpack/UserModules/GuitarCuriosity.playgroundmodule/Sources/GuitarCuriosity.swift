@@ -1,7 +1,7 @@
 import SwiftUI
 import PlaygroundSupport
 
-public struct FindingTheRightOne : View{
+public struct GuitarCuriosity : View{
     public init(){
         
     }
