@@ -33,9 +33,20 @@ public struct GuitarCuriosity : View{
     @State var startCard5 = false
     
     @State var imageNames = ["card1","card2","card3","card4","card5"]
+    @State var texts = ["Let's Play and discover new things","Omg, a lot of information, okay just one more!"]
+    @State var contText = 0
     @State var cont = 0
     
+    
     public init(){
+        let fontURL = Bundle.main.url(forResource: "CHINESER", withExtension: "ttf")
+        CTFontManagerRegisterFontURLs([fontURL!] as CFArray, CTFontManagerScope.process, true){ (errors, done) -> Bool in
+            if(done) {
+                
+            }
+            print(errors as Array)
+            return true
+        }
         
     }
     
@@ -129,8 +140,8 @@ public struct GuitarCuriosity : View{
                 .frame(width: 140, height: 140)
                 .position(self.posOrange ?? CGPoint(x: gp.size.width * 0.61 , y: gp.size.height * 0.52))
                 
-                Text("Let's Play and discover new things")
-                    .font(Font.custom("Chinese Rocks", size: 70))
+                Text(texts[contText])
+                    .font(Font.)
                     .foregroundColor(.black)
                     .position(self.posFirstText ?? CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.10))
                     .multilineTextAlignment(.center)
@@ -221,11 +232,11 @@ public struct GuitarCuriosity : View{
                     case 4:
                         withAnimation(.easeInOut(duration: 1)){
                             self.startCard1.toggle()
+                            contText += 1
                         }
-                        withAnimation(.easeInOut(duration: 1)){
-                            Text("sdfsdf")
-                                
+                        withAnimation(.easeInOut(duration: 1.1)){
                             
+                            posFirstText = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.15)
                         }
                     default:
                         break 
@@ -242,6 +253,7 @@ public struct GuitarCuriosity : View{
                 }.opacity(startCard1 ? 1 : 0)
                 .frame(width: 140, height: 140)
                 .position(x: gp.size.width * 0.50 , y: gp.size.height * 0.26)
+                
                 
                 
                 
