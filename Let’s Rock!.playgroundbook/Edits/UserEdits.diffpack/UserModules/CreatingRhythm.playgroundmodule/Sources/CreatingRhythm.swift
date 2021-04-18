@@ -21,6 +21,15 @@ public struct CreatingRhythm : View{
     @State var posPicker : CGPoint?
     
     public init(){
+        let fontURL = Bundle.main.url(forResource: "CHINESER", withExtension: "ttf")
+        CTFontManagerRegisterFontURLs([fontURL!] as CFArray, CTFontManagerScope.process, true){ (errors, done) -> Bool in
+            if(done) {
+                
+            }
+            print(errors as Array)
+            return true
+        }
+        
     }
     
     public var body : some View{
