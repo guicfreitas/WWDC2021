@@ -185,7 +185,14 @@ public struct GuitarCuriosity : View{
                 .frame(width: 140, height: 140)
                 .position(x: gp.size.width * 0.50 , y: gp.size.height * 0.26)
                 
-                
+                Button(action: {
+                    
+                }){
+                    Image(uiImage: UIImage(named: "card2")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: gp.size.width * 0.35, height: gp.size.width * 0.35)
+                }
                 
             }.background(Color(#colorLiteral(red: 0.9501661658287048, green: 0.6621111035346985, blue: 0.22048801183700562, alpha: 1.0)))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
