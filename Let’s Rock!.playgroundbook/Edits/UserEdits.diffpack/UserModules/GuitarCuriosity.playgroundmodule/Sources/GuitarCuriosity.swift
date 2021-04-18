@@ -22,6 +22,16 @@ public struct GuitarCuriosity : View{
     @State var startOrange = false
     @State var orangeFrame : CGFloat?
     
+    @State var startPicker : CGPoint? 
+    @State var posFirstText : CGPoint?
+    @State var posObs : CGPoint?
+    
+    @State var startCard1 = false
+    @State var startCard2 = false
+    @State var startCard3 = false
+    @State var startCard4 = false
+    @State var startCard5 = false
+    
     
     public init(){
         
@@ -39,9 +49,8 @@ public struct GuitarCuriosity : View{
                     .animation(.default)
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 4)){
-                        self.posGreen = CGPoint(x: gp.size.width * 0.22,y: gp.size.height * 0.92)
-                        self.greenFrame = gp.size.width * 0.045
+                    withAnimation(.easeInOut(duration: 2)){
+                        self.startCard1.toggle()
                     }
                     
                 }){
@@ -49,9 +58,12 @@ public struct GuitarCuriosity : View{
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: self.greenFrame ?? gp.size.width * 0.019, height: self.greenFrame ?? gp.size.width * 0.019)
-                        .position(self.posGreen ?? CGPoint(x: gp.size.width * 0.40 , y: gp.size.height * 0.52))
                         
-                }
+                        
+                }.opacity(startGreen ? 1 : 0)
+                .position(self.posGreen ?? CGPoint(x: gp.size.width * 0.40 , y: gp.size.height * 0.52))
+                .frame(witdh: 140, height: 140)
+                
                 Button(action: {
                     withAnimation(.easeInOut(duration: 4)){
                         self.posRed = CGPoint(x: gp.size.width * 0.36,y: gp.size.height * 0.92)
@@ -64,7 +76,7 @@ public struct GuitarCuriosity : View{
                         .frame(width: self.redFrame ?? gp.size.width * 0.019, height: self.redFrame ?? gp.size.width * 0.019)
                         .position(self.posRed ?? CGPoint(x: gp.size.width * 0.452 , y: gp.size.height * 0.52))
                         
-                }
+                }.opacity(startRed ? 1 : 0)
                 
                 Button(action: {
                     withAnimation(.easeInOut(duration: 4)){
@@ -78,7 +90,7 @@ public struct GuitarCuriosity : View{
                         .frame(width: self.yellowFrame ?? gp.size.width * 0.019, height: self.yellowFrame ?? gp.size.width * 0.019)
                         .position(self.posYellow ?? CGPoint(x: gp.size.width * 0.505 , y: gp.size.height * 0.52))
                         
-                }
+                }.opacity(startYellow ? 1 : 0)
                 
                 Button(action: {
                     withAnimation(.easeInOut(duration: 4)){
@@ -92,7 +104,7 @@ public struct GuitarCuriosity : View{
                         .frame(width: self.blueFrame ?? gp.size.width * 0.019, height: self.blueFrame ??  gp.size.width * 0.019)
                         .position(self.posBlue ?? CGPoint(x: gp.size.width * 0.558 , y: gp.size.height * 0.52))
                         
-                }
+                }.opacity(startBlue ? 1 : 0)
                 
                 Button(action: {
                     withAnimation(.easeInOut(duration: 4)){
@@ -107,7 +119,61 @@ public struct GuitarCuriosity : View{
                         .frame(width: self.orangeFrame ?? gp.size.width * 0.019, height: self.orangeFrame ?? gp.size.width * 0.019)
                         .position(self.posOrange ?? CGPoint(x: gp.size.width * 0.61 , y: gp.size.height * 0.52))
                         
+                }.opacity(startOrange ? 1 : 0)
+                
+                Text("Let's Play and discover new things")
+                    .font(Font.custom("Chinese Rocks", size: 70))
+                    .foregroundColor(.black)
+                    .position(self.posFirstText ?? CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.10))
+                    .multilineTextAlignment(.center)
+                    .animation(.default)
+                
+                Text("*Click on the notes when they reach their color*")
+                    .font(Font.custom("Chinese Rocks", size: 30))
+                    .foregroundColor(.black)
+                    .position(self.posObs ?? CGPoint(x: gp.size.width/2, y: gp.size.height * 0.15))
+                    .animation(.default)
+                    
+                Button( action: {
+                    
+                    withAnimation(.easeInOut(duration : 1)){
+                        startGreen.toggle()
+                        self.startPicker = CGPoint(x: gp.size.width * 0.50, y: -gp.size.height * 0.22)
+                        self.posFirstText = CGPoint(x: gp.size.width * 0.50, y: -gp.size.height * 0.10)
+                    }
+                    
+                    withAnimation(.easeInOut(duration: 4)){
+                        self.posGreen = CGPoint(x: gp.size.width * 0.22,y: gp.size.height * 0.92)
+                        self.posObs = CGPoint(x: gp.size.width/2, y: -gp.size.height * 0.15)
+                        self.greenFrame = gp.size.width * 0.045
+                    }
+                    
+                }){
+                    Image(uiImage: UIImage(named: "startPicker")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 140, height: 140)
+                        
                 }
+                .frame(width: 140, height: 140)
+                .position(self.startPicker ?? CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.26))
+                
+                
+                Button(action: {
+                    withAnimation(.easeInOut(duration: 4)){
+                        self.posOrange = CGPoint(x: gp.size.width * 0.785,y: gp.size.height * 0.92)
+                        self.orangeFrame = gp.size.width * 0.045
+                    }
+                    
+                }){
+                    Image(uiImage: UIImage(named: "card1")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: self.orangeFrame ?? gp.size.width * 0.35, height: self.orangeFrame ?? gp.size.width * 0.35)
+                        .position(self.posOrange ?? CGPoint(x: gp.size.width * 0.50 , y: gp.size.height * 0.26))
+                    
+                }.opacity(startCard1 ? 1 : 0)
+                
                 
                 
                 
