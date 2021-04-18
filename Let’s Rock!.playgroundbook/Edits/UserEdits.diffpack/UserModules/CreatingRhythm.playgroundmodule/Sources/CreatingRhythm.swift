@@ -29,6 +29,7 @@ public struct CreatingRhythm : View{
     @State var rotationAmount = 90.0
     
     var player : AVAudioPlayer?
+    var player2 : AVAudioPlayer?
     
     public init(){
         let fontURL = Bundle.main.url(forResource: "CHINESER", withExtension: "ttf")
@@ -58,6 +59,28 @@ public struct CreatingRhythm : View{
             
             
         } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        guard let url2 = Bundle.main.url(forResource: "yasMusic", withExtension: "mpeg") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)            
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            player2 = try AVAudioPlayer(contentsOf: url2, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            
+            
+            player2?.prepareToPlay()
+            guard let player2 = player2 else { return }
+            player2.volume = 0.1
+            player2.numberOfLoops = 5
+            player2.play()
+        }catch let error {
             print(error.localizedDescription)
         }
         
