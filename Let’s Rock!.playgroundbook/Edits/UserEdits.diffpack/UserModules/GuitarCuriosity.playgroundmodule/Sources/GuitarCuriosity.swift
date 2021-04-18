@@ -185,29 +185,6 @@ public struct GuitarCuriosity : View{
                 .frame(width: 140, height: 140)
                 .position(x: gp.size.width * 0.50 , y: gp.size.height * 0.26)
                 
-                Button(action: {
-                    withAnimation(.easeInOut(duration: 1)){
-                        self.startCard2.toggle()
-                    }
-                    withAnimation(.easeInOut(duration: 4)){
-                        self.startYellow.toggle()
-                        self.posYellow = CGPoint(x: gp.size.width * 0.504,y: gp.size.height * 0.92)
-                        self.yellowFrame = gp.size.width * 0.045
-                    }
-                    
-                }){
-                    Image(uiImage: UIImage(named: "card2")!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: gp.size.width * 0.35, height: gp.size.width * 0.35)
-                    
-                    
-                }.opacity(startCard1 ? 1 : 0)
-                .frame(width: 140, height: 140)
-                .position(x: gp.size.width * 0.50 , y: gp.size.height * 0.26)
-                
-                
-                
                 
                 
             }.background(Color(#colorLiteral(red: 0.9501661658287048, green: 0.6621111035346985, blue: 0.22048801183700562, alpha: 1.0)))
