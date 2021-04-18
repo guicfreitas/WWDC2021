@@ -1,4 +1,11 @@
+
+//Soundtrack Vodovoz Music Productions 
+/*
+ https://www.youtube.com/watch?v=-rK18sRGTUk&list=PLq4r2IOXma9AYVxAoHM6eKhstxdU6Q18q 
+ */
+
 import SwiftUI
+import AVFoundation
 import PlaygroundSupport
 
 public struct CreatingRhythm : View{
@@ -19,6 +26,9 @@ public struct CreatingRhythm : View{
     @State var posText2 : CGPoint?
     @State var isHoverYes = false
     @State var posPicker : CGPoint?
+    @State var rotationAmount = 90.0
+    
+    var player : AVAudioPlayer?
     
     public init(){
         let fontURL = Bundle.main.url(forResource: "CHINESER", withExtension: "ttf")
@@ -30,11 +40,46 @@ public struct CreatingRhythm : View{
             return true
         }
         
+        guard let url = Bundle.main.url(forResource: "overdriven-guitar-single-power-chord-long-release_A_minor", withExtension: "wav") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)            
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            
+            
+            player?.prepareToPlay()
+            guard let player = player else { return }
+            
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
     }
     
     public var body : some View{
         GeometryReader {gp in 
             ZStack(){
+                Image(uiImage: UIImage(named: "leftBg")!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: gp.size.width)
+                    .position(x:gp.size.width * 0.10 ,y:gp.size.height * 0.50)
+                Image(uiImage: UIImage(named: "rightBg")!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: gp.size.height)
+                    .position(x:gp.size.width * 0.90 ,y:gp.size.height * 0.50)
+            }.background(Color(#colorLiteral(red: 0.9603047966957092, green: 0.7802415490150452, blue: 0.5308190584182739, alpha: 1.0)))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            ZStack(){
+                
                 Button(action: {
                     PlaygroundPage.current.navigateTo(page: .next)
                 }){
@@ -73,7 +118,9 @@ public struct CreatingRhythm : View{
                                     positionText2 = CGPoint(x: gp.size.width / 2, y: -1190)
                                     posText = CGPoint(x: gp.size.width/2, y: gp.size.height * 0.21)
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+                                    player!.play()
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 15){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
                                         self.posText2 = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.25)
                                         self.posPicker = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.37)
@@ -105,7 +152,7 @@ public struct CreatingRhythm : View{
                                     positionText2 = CGPoint(x: gp.size.width / 2, y: -1190)
                                     posText = CGPoint(x: gp.size.width/2, y: gp.size.height * 0.21)
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 15){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
                                         self.posText2 = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.25)
                                         self.posPicker = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.37)
@@ -137,7 +184,7 @@ public struct CreatingRhythm : View{
                                     positionText2 = CGPoint(x: gp.size.width / 2, y: -1190)
                                     posText = CGPoint(x: gp.size.width/2, y: gp.size.height * 0.21)
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 15){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
                                         self.posText2 = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.25)
                                         self.posPicker = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.37)
@@ -171,7 +218,7 @@ public struct CreatingRhythm : View{
                                     positionText2 = CGPoint(x: gp.size.width / 2, y: -1190)
                                     posText = CGPoint(x: gp.size.width/2, y: gp.size.height * 0.21)
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 15){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
                                         self.posText2 = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.25)
                                         self.posPicker = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.37)
@@ -230,8 +277,7 @@ public struct CreatingRhythm : View{
                 
                 
                 
-            }.background(Color(#colorLiteral(red: 0.9501661658287048, green: 0.6621111035346985, blue: 0.22048801183700562, alpha: 1.0)))
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
             
         }
         

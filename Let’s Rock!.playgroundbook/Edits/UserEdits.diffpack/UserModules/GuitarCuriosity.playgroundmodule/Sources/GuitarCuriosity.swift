@@ -52,6 +52,7 @@ public struct GuitarCuriosity : View{
     
     public var body : some View{
         GeometryReader{ gp in
+            
             ZStack(){
                 
                 Image(uiImage: UIImage(named: "guitarHero")!)
