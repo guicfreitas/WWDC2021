@@ -49,8 +49,9 @@ public struct GuitarCuriosity : View{
                     .animation(.default)
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 2)){
+                    withAnimation(.easeInOut(duration: 1)){
                         self.startCard1.toggle()
+                        self.startGreen.toggle()
                     }
                     
                 }){
@@ -59,15 +60,14 @@ public struct GuitarCuriosity : View{
                         .aspectRatio(contentMode: .fill)
                         .frame(width: self.greenFrame ?? gp.size.width * 0.019, height: self.greenFrame ?? gp.size.width * 0.019)
                         
-                        
                 }.opacity(startGreen ? 1 : 0)
+                .frame(width: 140, height: 140)
                 .position(self.posGreen ?? CGPoint(x: gp.size.width * 0.40 , y: gp.size.height * 0.52))
-                .frame(witdh: 140, height: 140)
                 
                 Button(action: {
                     withAnimation(.easeInOut(duration: 4)){
-                        self.posRed = CGPoint(x: gp.size.width * 0.36,y: gp.size.height * 0.92)
-                        self.redFrame = gp.size.width * 0.045
+                        self.startCard2.toggle()
+                        self.startRed.toggle()
                     }
                 }){
                     Image(uiImage: UIImage(named: "redNote")!)
@@ -80,17 +80,18 @@ public struct GuitarCuriosity : View{
                 
                 Button(action: {
                     withAnimation(.easeInOut(duration: 4)){
-                        self.posYellow = CGPoint(x: gp.size.width * 0.504,y: gp.size.height * 0.92)
-                        self.yellowFrame = gp.size.width * 0.045
+                        
                     }
                 }){
                     Image(uiImage: UIImage(named: "yellowNote")!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: self.yellowFrame ?? gp.size.width * 0.019, height: self.yellowFrame ?? gp.size.width * 0.019)
-                        .position(self.posYellow ?? CGPoint(x: gp.size.width * 0.505 , y: gp.size.height * 0.52))
+                        
                         
                 }.opacity(startYellow ? 1 : 0)
+                .frame(width: 140, height: 140)
+                .position(self.posYellow ?? CGPoint(x: gp.size.width * 0.505 , y: gp.size.height * 0.52))
                 
                 Button(action: {
                     withAnimation(.easeInOut(duration: 4)){
@@ -105,6 +106,8 @@ public struct GuitarCuriosity : View{
                         .position(self.posBlue ?? CGPoint(x: gp.size.width * 0.558 , y: gp.size.height * 0.52))
                         
                 }.opacity(startBlue ? 1 : 0)
+                .frame(width: 140, height: 140)
+                .position(self.posBlue ?? CGPoint(x: gp.size.width * 0.558 , y: gp.size.height * 0.52))
                 
                 Button(action: {
                     withAnimation(.easeInOut(duration: 4)){
@@ -117,9 +120,11 @@ public struct GuitarCuriosity : View{
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: self.orangeFrame ?? gp.size.width * 0.019, height: self.orangeFrame ?? gp.size.width * 0.019)
-                        .position(self.posOrange ?? CGPoint(x: gp.size.width * 0.61 , y: gp.size.height * 0.52))
+                        
                         
                 }.opacity(startOrange ? 1 : 0)
+                .frame(width: 140, height: 140)
+                .position(self.posOrange ?? CGPoint(x: gp.size.width * 0.61 , y: gp.size.height * 0.52))
                 
                 Text("Let's Play and discover new things")
                     .font(Font.custom("Chinese Rocks", size: 70))
@@ -160,19 +165,47 @@ public struct GuitarCuriosity : View{
                 
                 
                 Button(action: {
+                    withAnimation(.easeInOut(duration: 1)){
+                        self.startCard1.toggle()
+                    }
                     withAnimation(.easeInOut(duration: 4)){
-                        self.posOrange = CGPoint(x: gp.size.width * 0.785,y: gp.size.height * 0.92)
-                        self.orangeFrame = gp.size.width * 0.045
+                        self.startRed.toggle()
+                        self.posRed = CGPoint(x: gp.size.width * 0.36,y: gp.size.height * 0.92)
+                        self.redFrame = gp.size.width * 0.045
                     }
                     
                 }){
                     Image(uiImage: UIImage(named: "card1")!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: self.orangeFrame ?? gp.size.width * 0.35, height: self.orangeFrame ?? gp.size.width * 0.35)
-                        .position(self.posOrange ?? CGPoint(x: gp.size.width * 0.50 , y: gp.size.height * 0.26))
+                        .frame(width: gp.size.width * 0.35, height: gp.size.width * 0.35)
+                        
                     
                 }.opacity(startCard1 ? 1 : 0)
+                .frame(width: 140, height: 140)
+                .position(x: gp.size.width * 0.50 , y: gp.size.height * 0.26)
+                
+                Button(action: {
+                    withAnimation(.easeInOut(duration: 1)){
+                        self.startCard2.toggle()
+                    }
+                    withAnimation(.easeInOut(duration: 4)){
+                        self.startYellow.toggle()
+                        self.posYellow = CGPoint(x: gp.size.width * 0.504,y: gp.size.height * 0.92)
+                        self.yellowFrame = gp.size.width * 0.045
+                    }
+                    
+                }){
+                    Image(uiImage: UIImage(named: "card2")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: gp.size.width * 0.35, height: gp.size.width * 0.35)
+                    
+                    
+                }.opacity(startCard1 ? 1 : 0)
+                .frame(width: 140, height: 140)
+                .position(x: gp.size.width * 0.50 , y: gp.size.height * 0.26)
+                
                 
                 
                 
