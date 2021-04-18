@@ -32,6 +32,8 @@ public struct GuitarCuriosity : View{
     @State var startCard4 = false
     @State var startCard5 = false
     
+    @State var imageNames = ["card1","card2","card3","card4","card5"]
+    @State var cont = 0
     
     public init(){
         
@@ -65,8 +67,8 @@ public struct GuitarCuriosity : View{
                 .position(self.posGreen ?? CGPoint(x: gp.size.width * 0.40 , y: gp.size.height * 0.52))
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 4)){
-                        self.startCard2.toggle()
+                    withAnimation(.easeInOut(duration: 1)){
+                        self.startCard1.toggle()
                         self.startRed.toggle()
                     }
                 }){
@@ -79,8 +81,9 @@ public struct GuitarCuriosity : View{
                 }.opacity(startRed ? 1 : 0)
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 4)){
-                        
+                    withAnimation(.easeInOut(duration: 1)){
+                        self.startCard1.toggle()
+                        self.startYellow.toggle()
                     }
                 }){
                     Image(uiImage: UIImage(named: "yellowNote")!)
@@ -94,25 +97,25 @@ public struct GuitarCuriosity : View{
                 .position(self.posYellow ?? CGPoint(x: gp.size.width * 0.505 , y: gp.size.height * 0.52))
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 4)){
-                        self.posBlue = CGPoint(x: gp.size.width * 0.645,y: gp.size.height * 0.92)
-                        self.blueFrame = gp.size.width * 0.045
+                    withAnimation(.easeInOut(duration: 1)){
+                        self.startCard1.toggle()
+                        self.startBlue.toggle()
                     }
                 }){
                     Image(uiImage: UIImage(named: "blueNote")!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: self.blueFrame ?? gp.size.width * 0.019, height: self.blueFrame ??  gp.size.width * 0.019)
-                        .position(self.posBlue ?? CGPoint(x: gp.size.width * 0.558 , y: gp.size.height * 0.52))
+                        
                         
                 }.opacity(startBlue ? 1 : 0)
                 .frame(width: 140, height: 140)
                 .position(self.posBlue ?? CGPoint(x: gp.size.width * 0.558 , y: gp.size.height * 0.52))
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 4)){
-                        self.posOrange = CGPoint(x: gp.size.width * 0.785,y: gp.size.height * 0.92)
-                        self.orangeFrame = gp.size.width * 0.045
+                    withAnimation(.easeInOut(duration: 1)){
+                        self.startCard1.toggle()
+                        self.startOrange.toggle()
                     }
                     
                 }){
@@ -165,17 +168,72 @@ public struct GuitarCuriosity : View{
                 
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 1)){
-                        self.startCard1.toggle()
-                    }
-                    withAnimation(.easeInOut(duration: 4)){
-                        self.startRed.toggle()
-                        self.posRed = CGPoint(x: gp.size.width * 0.36,y: gp.size.height * 0.92)
-                        self.redFrame = gp.size.width * 0.045
+                    switch cont {
+                    case 0:
+                        withAnimation(.easeInOut(duration: 1)){
+                            self.startCard1.toggle()
+                        }
+                        withAnimation(.easeInOut(duration: 4)){
+                            self.startRed.toggle()
+                            self.posRed = CGPoint(x: gp.size.width * 0.36,y: gp.size.height * 0.92)
+                            self.redFrame = gp.size.width * 0.045
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                            cont += 1
+                        }
+                        
+                    case 1:
+                        withAnimation(.easeInOut(duration: 1)){
+                            self.startCard1.toggle()
+                        }
+                        withAnimation(.easeInOut(duration: 4)){
+                            self.startYellow.toggle()
+                            self.posYellow = CGPoint(x: gp.size.width * 0.502,y: gp.size.height * 0.92)
+                            self.yellowFrame = gp.size.width * 0.045
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                            cont += 1
+                        }
+                    case 2: 
+                        withAnimation(.easeInOut(duration: 1)){
+                            self.startCard1.toggle()
+                        }
+                        withAnimation(.easeInOut(duration: 4)){
+                            self.startBlue.toggle()
+                            self.posBlue = CGPoint(x: gp.size.width * 0.645,y: gp.size.height * 0.92)
+                            self.blueFrame = gp.size.width * 0.045
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                            cont += 1
+                        }
+                    case 3:
+                        withAnimation(.easeInOut(duration: 1)){
+                            self.startCard1.toggle()
+                        }
+                        withAnimation(.easeInOut(duration: 4)){
+                            self.startOrange.toggle()
+                            self.posOrange = CGPoint(x: gp.size.width * 0.785,y: gp.size.height * 0.92)
+                            self.orangeFrame = gp.size.width * 0.045
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                            cont += 1
+                        }
+                    case 4:
+                        withAnimation(.easeInOut(duration: 1)){
+                            self.startCard1.toggle()
+                        }
+                        withAnimation(.easeInOut(duration: 1)){
+                            Text("sdfsdf")
+                                
+                            
+                        }
+                    default:
+                        break 
                     }
                     
+                    
                 }){
-                    Image(uiImage: UIImage(named: "card1")!)
+                    Image(uiImage: UIImage(named: imageNames[cont])!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: gp.size.width * 0.35, height: gp.size.width * 0.35)
@@ -185,14 +243,7 @@ public struct GuitarCuriosity : View{
                 .frame(width: 140, height: 140)
                 .position(x: gp.size.width * 0.50 , y: gp.size.height * 0.26)
                 
-                Button(action: {
-                    
-                }){
-                    Image(uiImage: UIImage(named: "card2")!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: gp.size.width * 0.35, height: gp.size.width * 0.35)
-                }
+                
                 
             }.background(Color(#colorLiteral(red: 0.9501661658287048, green: 0.6621111035346985, blue: 0.22048801183700562, alpha: 1.0)))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
