@@ -141,7 +141,7 @@ public struct GuitarCuriosity : View{
                 .position(self.posOrange ?? CGPoint(x: gp.size.width * 0.61 , y: gp.size.height * 0.52))
                 
                 Text(texts[contText])
-                    .font(Font.)
+                    .font(Font.custom("Chinese Rocks",size: 70))
                     .foregroundColor(.black)
                     .position(self.posFirstText ?? CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.10))
                     .multilineTextAlignment(.center)
