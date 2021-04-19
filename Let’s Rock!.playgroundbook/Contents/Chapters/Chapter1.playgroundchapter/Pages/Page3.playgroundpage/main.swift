@@ -6,8 +6,9 @@
  */
 /*:
  - Important:
-    For a better experience, put you playground in full screen, close the side bar, make sure thats the only thing you see is the editor and the live view, Last but not least, enjoy this playground made with so much love <3
+    For a better experience, put your playground in full screen, close the side bar, make sure that's the only thing you see is the editor and the live view. Last but not least, enjoy this playground made with so much love <3
  */
+
 //#-hidden-code
 import PlaygroundSupport
 PlaygroundPage.current.setLiveView(GuitarCuriosity())
