@@ -141,6 +141,7 @@ public struct CreatingRhythm : View{
                                     positionText2 = CGPoint(x: gp.size.width / 2, y: -1190)
                                     posText = CGPoint(x: gp.size.width/2, y: gp.size.height * 0.21)
                                     
+                                    player!.volume = 0.15
                                     player!.play()
                                     
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 15){
@@ -175,6 +176,9 @@ public struct CreatingRhythm : View{
                                     positionText2 = CGPoint(x: gp.size.width / 2, y: -1190)
                                     posText = CGPoint(x: gp.size.width/2, y: gp.size.height * 0.21)
                                     
+                                    player!.volume = 0.15
+                                    player!.play()
+                                    
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 15){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
                                         self.posText2 = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.25)
@@ -206,6 +210,9 @@ public struct CreatingRhythm : View{
                                     positionText1 = CGPoint(x: gp.size.width / 2, y: -1050)
                                     positionText2 = CGPoint(x: gp.size.width / 2, y: -1190)
                                     posText = CGPoint(x: gp.size.width/2, y: gp.size.height * 0.21)
+                                    
+                                    player!.volume = 0.15
+                                    player!.play()
                                     
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 15){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
@@ -241,6 +248,8 @@ public struct CreatingRhythm : View{
                                     positionText2 = CGPoint(x: gp.size.width / 2, y: -1190)
                                     posText = CGPoint(x: gp.size.width/2, y: gp.size.height * 0.21)
                                     
+                                    player!.volume = 0.15
+                                    player!.play()
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 15){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
                                         self.posText2 = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.25)

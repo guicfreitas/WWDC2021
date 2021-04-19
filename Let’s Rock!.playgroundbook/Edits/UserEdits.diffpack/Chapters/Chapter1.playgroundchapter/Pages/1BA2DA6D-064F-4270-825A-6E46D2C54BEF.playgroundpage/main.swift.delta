@@ -8,16 +8,40 @@
 	<array>
 		<dict>
 			<key>ModifiedContent</key>
+			<string>/*
+ Creating a Rhythm
+ 
+ So let's start our journey!
+ Here you will find out more about Rock,
+ But you have to create a new rhythm with 
+ some existing genre fisrt.
+ 
+ And remember:
+ To a better exprecience follow theses instructions:
+ -Put you playground in full screen
+ -Close the side bar, make sure thats the only thing you see is the editor and the live view
+ -Last but not least, enjoy this playground made with so much love &lt;3
+ 
+ */
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 440}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
 			<string>import PlaygroundSupport
 PlaygroundPage.current.setLiveView(CreatingRhythm())
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 78}</string>
+			<string>{441, 78}</string>
 			<key>OriginalContent</key>
-			<string>
-</string>
+			<string></string>
 			<key>OriginalRange</key>
-			<string>{0, 1}</string>
+			<string>{1, 0}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>

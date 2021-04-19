@@ -34,7 +34,13 @@ public struct GuitarCuriosity : View{
     @State var startCard5 = false
     
     @State var imageNames = ["card1","card2","card3","card4","card5"]
-    @State var texts = ["Let's Play and discover new things","Omg, a lot of information, okay just one more!"]
+    @State var texts = ["Let's Play and discover new things","""
+I think i'm more in love with rock
+after all this!
+
+What about you?
+Thanks for you atentiton!
+"""]
     @State var contText = 0
     @State var cont = 0
     
@@ -261,7 +267,7 @@ public struct GuitarCuriosity : View{
                         }
                         withAnimation(.easeInOut(duration: 1.1)){
                             
-                            posFirstText = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.15)
+                            posFirstText = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.20)
                         }
                     default:
                         break 
