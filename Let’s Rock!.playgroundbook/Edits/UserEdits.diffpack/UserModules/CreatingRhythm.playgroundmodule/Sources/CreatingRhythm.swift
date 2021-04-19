@@ -144,7 +144,7 @@ public struct CreatingRhythm : View{
                                     player!.volume = 0.15
                                     player!.play()
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 12){
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 10){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
                                         self.posText2 = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.25)
                                         self.posPicker = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.37)
@@ -179,7 +179,7 @@ public struct CreatingRhythm : View{
                                     player!.volume = 0.15
                                     player!.play()
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 12){
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 10){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
                                         self.posText2 = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.25)
                                         self.posPicker = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.37)
@@ -214,7 +214,7 @@ public struct CreatingRhythm : View{
                                     player!.volume = 0.15
                                     player!.play()
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 12){
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 10){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
                                         self.posText2 = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.25)
                                         self.posPicker = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.37)
@@ -250,7 +250,7 @@ public struct CreatingRhythm : View{
                                     
                                     player!.volume = 0.15
                                     player!.play()
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 12){
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 10){
                                         posText = CGPoint(x: gp.size.width/2, y: gp.size.height * -0.21)
                                         self.posText2 = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.25)
                                         self.posPicker = CGPoint(x: gp.size.width * 0.50, y: gp.size.height * 0.37)
